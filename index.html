@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prabesh | Vibe Coder Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-mode">
+
+    <!-- Interactive Rope Pull Switcher for Light/Dark Mode -->
+    <div class="rope-wrapper" id="ropeToggle" title="Pull rope to change mode">
+        <div class="rope-line"></div>
+        <div class="rope-handle"></div>
+    </div>
+
+    <!-- Animated Particle Background Canvas -->
+    <canvas id="particlesCanvas"></canvas>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">⚡ Prabesh</div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#" class="active" onclick="toggleMenu()">Home</a></li>
+            <li><a href="#work" onclick="toggleMenu()">Projects</a></li>
+            <li><a href="#timeline" onclick="toggleMenu()">Experience</a></li>
+            <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+        </ul>
+        <div class="nav-right">
+            <span>Nepal</span>
+            <span><span id="clock">00:00</span></span>
+            <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="status-badge">
+                <span class="status-dot"></span>
+                AVAILABLE FOR NEW WORK
+            </div>
+            <h1>Hi, I'm Prabesh.<br>I am a <br><span class="role-box" id="role-title">Vibe Coder</span></h1>
+            
+            <div class="hero-btns">
+                <a href="#contact" class="btn btn-primary">Start project</a>
+                <a href="#work" class="btn btn-secondary">See my work</a>
+            </div>
+        </div>
+
+        <!-- 3D Tilt Profile Card with Full Square Photo & Overlapping Colorful Text -->
+        <div class="profile-card-container">
+            <div class="profile-card" id="profileCard">
+                <div class="profile-avatar square-avatar">
+                    <!-- Save your photo as profile-pic.jpg -->
+                    <img src="profile-pic.jpg" alt="Prabesh" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="avatar-fallback" style="display:none;">📷</div>
+                    
+                    <!-- Overlapping Colorful Role Text on top of Photo -->
+                    <div class="photo-overlay-text">
+                        <span id="photo-role-title">Vibe Coder</span>
+                    </div>
+                </div>
+                <h3>Prabesh</h3>
+                <p>Full-Stack Developer</p>
+                <div class="profile-tag">Based in Nepal 🇳🇵</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Magic Doors Section -->
+    <section class="doors-section" id="work">
+        <h2>Magic happens behind the doors</h2>
+        <p class="section-sub">Click a door to open and view the project gallery.</p>
+        <div class="doors-container">
+            <!-- Door 1: Web Development -->
+            <div class="door-card" onclick="openModal('webModal')">
+                <div class="door-inner">
+                    <div class="door-front">
+                        <span class="door-label">01 / WEB DEV</span>
+                        <h3>Web Development</h3>
+                        <p>Click to open 3 project photos</p>
+                        <div class="door-graphic">💻</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Door 2: App Development -->
+            <div class="door-card" onclick="openModal('appModal')">
+                <div class="door-inner">
+                    <div class="door-front">
+                        <span class="door-label">02 / APP DEV</span>
+                        <h3>App Development</h3>
+                        <p>Click to open 3 project photos</p>
+                        <div class="door-graphic">📱</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Door 3: UI/UX Design -->
+            <div class="door-card" onclick="openModal('uiModal')">
+                <div class="door-inner">
+                    <div class="door-front">
+                        <span class="door-label">03 / DESIGN</span>
+                        <h3>UI/UX Design</h3>
+                        <p>Click to open 3 project photos</p>
+                        <div class="door-graphic">🎨</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Timeline Section -->
+    <section class="timeline-section" id="timeline">
+        <h2>Let's go back in time</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-year">2026</div>
+                <div class="timeline-content">
+                    <h3>Vibe Coder & Web Developer</h3>
+                    <p>Building high-performance interactive web tools and creative mobile-first web applications with immersive experiences.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-year">2025</div>
+                <div class="timeline-content">
+                    <h3>UI/UX & Frontend Enthusiast</h3>
+                    <p>Designed lightweight glassmorphic dynamic web elements, dashboards, and custom client interfaces.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="cta-section" id="contact">
+        <h2>Got a project?<br>Let's build it together.</h2>
+        <p>Available for freelance projects, custom web platforms, and engineering roles.</p>
+        <p class="contact-number">📞 Phone / WhatsApp: <a href="tel:9824706111">9824706111</a></p>
+        <a href="tel:9824706111" class="btn btn-primary inline-btn">Call Now</a>
+    </section>
+
+    <!-- Dynamic Modals for Magic Doors -->
+    <div class="modal" id="webModal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal('webModal')">&times;</button>
+            <h3>💻 Web Development Projects</h3>
+            <p>Explore the project snapshots below:</p>
+            <div class="gallery-grid">
+                <div class="gallery-item" style="background: linear-gradient(135deg, #3b82f6, #1d4ed8);">Dashboard UI</div>
+                <div class="gallery-item" style="background: linear-gradient(135deg, #10b981, #047857);">E-Commerce App</div>
+                <div class="gallery-item" style="background: linear-gradient(135deg, #6366f1, #4338ca);">Interactive Tool</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="appModal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal('appModal')">&times;</button>
+            <h3>📱 App Development Projects</h3>
+            <p>Explore mobile screen previews:</p>
+            <div class="gallery-grid">
+                <div class="gallery-item" style="background: linear-gradient(135deg, #f59e0b, #b45309);">Expense Tracker</div>
+                <div class="gallery-item" style="background: linear-gradient(135deg, #ec4899, #be185d);">Brick Breaker Game</div>
+                <div class="gallery-item" style="background: linear-gradient(135deg, #8b5cf6, #6d28d9);">Crypto Wallet UI</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="uiModal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal('uiModal')">&times;</button>
+            <h3>🎨 UI/UX Design Concepts</h3>
+            <p>Explore design shots and layouts:</p>
+            <div class="gallery-grid">
+                <div class="gallery-item" style="background: linear-gradient(135deg, #06b6d4, #0e7490);">Glassmorphism Card</div>
+                <div class="gallery-item" style="background: linear-gradient(135deg, #f43f5e, #9f1239);">Dark Mode Theme</div>
+                <div class="gallery-item" style="background: linear-gradient(135deg, #14b8a6, #0f766e);">Minimalist Landing</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
